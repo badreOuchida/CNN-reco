@@ -4,15 +4,23 @@ import os
 
 
 def app():
-    st.header("License Plate Recognition Web App")
-    st.subheader("Powered by YOLOv5")
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col1:
+        st.image(os.path.join("logos","Logo_inpt.PNG"), width=150)
+    with col2:
+        st.image(os.path.join("logos","ocr.png"), width=150)
+    with col3:
+        st.image(os.path.join("logos","yolo.png"), width=180)
+    st.header("Vehicle License Plate Recognition")
+    st.info("Work carried out by Taqi Anas and Ouchida Badreddine", icon="📃")
     st.write("Welcome!")
+
 
     with st.form("my_uploader"):
         uploaded_file = st.file_uploader(
             "Upload image", type=["png", "jpg", "jpeg"], accept_multiple_files=False
         )
-        submit = st.form_submit_button(label="Upload")
+        submit = st.form_submit_button(label="Process image")
     print("file name is ",uploaded_file)
     if uploaded_file is not None:
         # save uploaded image
